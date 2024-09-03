@@ -1,0 +1,82 @@
+/*application {
+ *   config {
+ *     baseName hostelMgmt
+ *     reactive false
+ *     packageName com.hostl.mgmt
+ *     applicationType microservice
+ *     authenticationType oauth2
+ *     buildTool maven
+ *     clientFramework angularX
+ *     databaseType sql
+ *     devDatabaseType postgresql
+ *     prodDatabaseType postgresql
+ *     searchEngine false
+ *     enableHibernateCache false
+ *     serverPort 8123
+ *     messageBroker kafka
+ *     serviceDiscoveryType consul
+ *     testFrameworks [cypress]
+ *     skipUserManagement false
+ *   }
+ *   entities User, Room, Inventory, Payment, Document, Hostel
+ }*/
+entity Hostel {
+  name String
+  address TextBlob
+  capacity Long
+  noOfRooms Long
+  floors Long
+}
+entity Room {
+  roomNo String
+  type RoomType
+  cost Float
+  beds Long
+  floor Integer
+}
+entity Inventory {
+  name String
+  quantity Long
+}
+entity Payment {
+  uuid UUID
+  mode PaymentMode
+  date LocalDate
+  value Long
+  status Status
+}
+entity Document {
+  type String
+  content Blob
+}
+entity Champ {
+  name String
+  login String
+  password String
+  type UserType
+  status Status
+  address TextBlob
+  mobileNo Long
+}
+enum UserType {
+  ADMIN, MANAGER, STUDENT, WORKING_PROFESSIONAL
+}
+enum PaymentMode {
+  UPI, CASH, CARD, NEFT
+}
+enum RoomType {
+  AC, NON_AC
+}
+enum Status {
+  ACTIVE, INACTIVE, BL, FAILED, DELAYED, SUCCESS
+}
+relationship OneToOne {
+  Champ to Room
+}
+relationship OneToMany{
+  Champ to Document
+}
+relationship ManyToOne {
+  Payment{champ} to Champ
+  Champ{parent} to Champ
+}
