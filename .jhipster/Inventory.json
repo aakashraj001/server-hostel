@@ -1,0 +1,22 @@
+{
+  "annotations": {
+    "changelogDate": "20240908070511"
+  },
+  "applications": ["hostelMgmt"],
+  "clientRootFolder": "hostelMgmt",
+  "databaseType": "sql",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "quantity",
+      "fieldType": "Long"
+    }
+  ],
+  "microserviceName": "hostelMgmt",
+  "name": "Inventory",
+  "relationships": [],
+  "searchEngine": "no"
+}

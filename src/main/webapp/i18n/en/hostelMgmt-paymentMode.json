@@ -1,0 +1,11 @@
+{
+  "hostelMgmtApp": {
+    "PaymentMode": {
+      "null": "",
+      "UPI": "UPI",
+      "CASH": "CASH",
+      "CARD": "CARD",
+      "NEFT": "NEFT"
+    }
+  }
+}

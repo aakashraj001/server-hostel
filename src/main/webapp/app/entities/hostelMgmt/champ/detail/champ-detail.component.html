@@ -1,0 +1,82 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (champ()) {
+      <div>
+        <h2 data-cy="champDetailsHeading"><span jhiTranslate="hostelMgmtApp.hostelMgmtChamp.detail.title">Champ</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ champ()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="hostelMgmtApp.hostelMgmtChamp.name">Name</span></dt>
+          <dd>
+            <span>{{ champ()!.name }}</span>
+          </dd>
+          <dt><span jhiTranslate="hostelMgmtApp.hostelMgmtChamp.login">Login</span></dt>
+          <dd>
+            <span>{{ champ()!.login }}</span>
+          </dd>
+          <dt><span jhiTranslate="hostelMgmtApp.hostelMgmtChamp.password">Password</span></dt>
+          <dd>
+            <span>{{ champ()!.password }}</span>
+          </dd>
+          <dt><span jhiTranslate="hostelMgmtApp.hostelMgmtChamp.type">Type</span></dt>
+          <dd>
+            <span [jhiTranslate]="'hostelMgmtApp.UserType.' + (champ()!.type ?? 'null')">{{
+              { null: '', ADMIN: 'ADMIN', MANAGER: 'MANAGER', STUDENT: 'STUDENT', WORKING_PROFESSIONAL: 'WORKING_PROFESSIONAL' }[
+                champ()!.type ?? 'null'
+              ]
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="hostelMgmtApp.hostelMgmtChamp.status">Status</span></dt>
+          <dd>
+            <span [jhiTranslate]="'hostelMgmtApp.Status.' + (champ()!.status ?? 'null')">{{
+              { null: '', ACTIVE: 'ACTIVE', INACTIVE: 'INACTIVE', BL: 'BL', FAILED: 'FAILED', DELAYED: 'DELAYED', SUCCESS: 'SUCCESS' }[
+                champ()!.status ?? 'null'
+              ]
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="hostelMgmtApp.hostelMgmtChamp.address">Address</span></dt>
+          <dd>
+            <span>{{ champ()!.address }}</span>
+          </dd>
+          <dt><span jhiTranslate="hostelMgmtApp.hostelMgmtChamp.mobileNo">Mobile No</span></dt>
+          <dd>
+            <span>{{ champ()!.mobileNo }}</span>
+          </dd>
+          <dt><span jhiTranslate="hostelMgmtApp.hostelMgmtChamp.room">Room</span></dt>
+          <dd>
+            @if (champ()!.room) {
+              <div>
+                <a [routerLink]="['/hostelmgmt/room', champ()!.room?.id, 'view']">{{ champ()!.room?.id }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="hostelMgmtApp.hostelMgmtChamp.parent">Parent</span></dt>
+          <dd>
+            @if (champ()!.parent) {
+              <div>
+                <a [routerLink]="['/hostelmgmt/champ', champ()!.parent?.id, 'view']">{{ champ()!.parent?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/hostelmgmt/champ', champ()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

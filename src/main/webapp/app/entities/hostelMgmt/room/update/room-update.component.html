@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-room-heading" data-cy="RoomCreateUpdateHeading" jhiTranslate="hostelMgmtApp.hostelMgmtRoom.home.createOrEditLabel">
+        Create or edit a Room
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="hostelMgmtApp.hostelMgmtRoom.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_roomNo" jhiTranslate="hostelMgmtApp.hostelMgmtRoom.roomNo">Room No</label>
+          <input type="text" class="form-control" name="roomNo" id="field_roomNo" data-cy="roomNo" formControlName="roomNo" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_type" jhiTranslate="hostelMgmtApp.hostelMgmtRoom.type">Type</label>
+          <select class="form-control" name="type" formControlName="type" id="field_type" data-cy="type">
+            <option [ngValue]="null">{{ 'hostelMgmtApp.RoomType.null' | translate }}</option>
+            @for (roomType of roomTypeValues; track $index) {
+              <option [value]="roomType">{{ 'hostelMgmtApp.RoomType.' + roomType | translate }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_cost" jhiTranslate="hostelMgmtApp.hostelMgmtRoom.cost">Cost</label>
+          <input type="number" class="form-control" name="cost" id="field_cost" data-cy="cost" formControlName="cost" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_beds" jhiTranslate="hostelMgmtApp.hostelMgmtRoom.beds">Beds</label>
+          <input type="number" class="form-control" name="beds" id="field_beds" data-cy="beds" formControlName="beds" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_floor" jhiTranslate="hostelMgmtApp.hostelMgmtRoom.floor">Floor</label>
+          <input type="number" class="form-control" name="floor" id="field_floor" data-cy="floor" formControlName="floor" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+{
+  "annotations": {
+    "changelogDate": "20240908070311"
+  },
+  "applications": ["hostelMgmt"],
+  "clientRootFolder": "hostelMgmt",
+  "databaseType": "sql",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "login",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "password",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "UserType",
+      "fieldValues": "ADMIN,MANAGER,STUDENT,WORKING_PROFESSIONAL"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Status",
+      "fieldValues": "ACTIVE,INACTIVE,BL,FAILED,DELAYED,SUCCESS"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "mobileNo",
+      "fieldType": "Long"
+    }
+  ],
+  "microserviceName": "hostelMgmt",
+  "name": "Champ",
+  "relationships": [
+    {
+      "otherEntityName": "room",
+      "otherEntityRelationshipName": "champ",
+      "relationshipName": "room",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "document",
+      "otherEntityRelationshipName": "champ",
+      "relationshipName": "document",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "champ",
+      "relationshipName": "parent",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

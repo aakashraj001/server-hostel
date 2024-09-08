@@ -1,0 +1,172 @@
+<div>
+  <h2 id="page-heading" data-cy="ChampHeading">
+    <span jhiTranslate="hostelMgmtApp.hostelMgmtChamp.home.title">Champs</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="hostelMgmtApp.hostelMgmtChamp.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-champ"
+        [routerLink]="['/hostelmgmt/champ/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="hostelMgmtApp.hostelMgmtChamp.home.createLabel">Create a new Champ</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (champs?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="hostelMgmtApp.hostelMgmtChamp.home.notFound">No Champs found</span>
+    </div>
+  }
+
+  @if (champs && champs.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="name">
+              <div class="d-flex">
+                <span jhiTranslate="hostelMgmtApp.hostelMgmtChamp.name">Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="login">
+              <div class="d-flex">
+                <span jhiTranslate="hostelMgmtApp.hostelMgmtChamp.login">Login</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="password">
+              <div class="d-flex">
+                <span jhiTranslate="hostelMgmtApp.hostelMgmtChamp.password">Password</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="type">
+              <div class="d-flex">
+                <span jhiTranslate="hostelMgmtApp.hostelMgmtChamp.type">Type</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="status">
+              <div class="d-flex">
+                <span jhiTranslate="hostelMgmtApp.hostelMgmtChamp.status">Status</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="address">
+              <div class="d-flex">
+                <span jhiTranslate="hostelMgmtApp.hostelMgmtChamp.address">Address</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="mobileNo">
+              <div class="d-flex">
+                <span jhiTranslate="hostelMgmtApp.hostelMgmtChamp.mobileNo">Mobile No</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="room.id">
+              <div class="d-flex">
+                <span jhiTranslate="hostelMgmtApp.hostelMgmtChamp.room">Room</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="parent.id">
+              <div class="d-flex">
+                <span jhiTranslate="hostelMgmtApp.hostelMgmtChamp.parent">Parent</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (champ of champs; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/hostelmgmt/champ', champ.id, 'view']">{{ champ.id }}</a>
+              </td>
+              <td>{{ champ.name }}</td>
+              <td>{{ champ.login }}</td>
+              <td>{{ champ.password }}</td>
+              <td [jhiTranslate]="'hostelMgmtApp.UserType.' + (champ.type ?? 'null')">
+                {{
+                  { null: '', ADMIN: 'ADMIN', MANAGER: 'MANAGER', STUDENT: 'STUDENT', WORKING_PROFESSIONAL: 'WORKING_PROFESSIONAL' }[
+                    champ.type ?? 'null'
+                  ]
+                }}
+              </td>
+              <td [jhiTranslate]="'hostelMgmtApp.Status.' + (champ.status ?? 'null')">
+                {{
+                  { null: '', ACTIVE: 'ACTIVE', INACTIVE: 'INACTIVE', BL: 'BL', FAILED: 'FAILED', DELAYED: 'DELAYED', SUCCESS: 'SUCCESS' }[
+                    champ.status ?? 'null'
+                  ]
+                }}
+              </td>
+              <td>{{ champ.address }}</td>
+              <td>{{ champ.mobileNo }}</td>
+              <td>
+                @if (champ.room) {
+                  <div>
+                    <a [routerLink]="['/hostelmgmt/room', champ.room.id, 'view']">{{ champ.room.id }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (champ.parent) {
+                  <div>
+                    <a [routerLink]="['/hostelmgmt/champ', champ.parent.id, 'view']">{{ champ.parent.id }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/hostelmgmt/champ', champ.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/hostelmgmt/champ', champ.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(champ)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

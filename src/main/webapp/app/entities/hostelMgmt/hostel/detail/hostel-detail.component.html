@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (hostel()) {
+      <div>
+        <h2 data-cy="hostelDetailsHeading"><span jhiTranslate="hostelMgmtApp.hostelMgmtHostel.detail.title">Hostel</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ hostel()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="hostelMgmtApp.hostelMgmtHostel.name">Name</span></dt>
+          <dd>
+            <span>{{ hostel()!.name }}</span>
+          </dd>
+          <dt><span jhiTranslate="hostelMgmtApp.hostelMgmtHostel.address">Address</span></dt>
+          <dd>
+            <span>{{ hostel()!.address }}</span>
+          </dd>
+          <dt><span jhiTranslate="hostelMgmtApp.hostelMgmtHostel.capacity">Capacity</span></dt>
+          <dd>
+            <span>{{ hostel()!.capacity }}</span>
+          </dd>
+          <dt><span jhiTranslate="hostelMgmtApp.hostelMgmtHostel.noOfRooms">No Of Rooms</span></dt>
+          <dd>
+            <span>{{ hostel()!.noOfRooms }}</span>
+          </dd>
+          <dt><span jhiTranslate="hostelMgmtApp.hostelMgmtHostel.floors">Floors</span></dt>
+          <dd>
+            <span>{{ hostel()!.floors }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/hostelmgmt/hostel', hostel()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

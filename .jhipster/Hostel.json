@@ -1,0 +1,35 @@
+{
+  "annotations": {
+    "changelogDate": "20240908070811"
+  },
+  "applications": ["hostelMgmt"],
+  "clientRootFolder": "hostelMgmt",
+  "databaseType": "sql",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "capacity",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "noOfRooms",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "floors",
+      "fieldType": "Long"
+    }
+  ],
+  "microserviceName": "hostelMgmt",
+  "name": "Hostel",
+  "relationships": [],
+  "searchEngine": "no"
+}

@@ -1,0 +1,3 @@
+org.springframework.test.context.ContextCustomizerFactory = com.hostl.mgmt.\
+    config.SqlTestContainersSpringContextCustomizerFactory,com.hostl.mgmt.\
+    config.KafkaTestContainersSpringContextCustomizerFactory

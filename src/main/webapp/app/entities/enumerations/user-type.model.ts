@@ -1,0 +1,9 @@
+export enum UserType {
+  ADMIN = 'ADMIN',
+
+  MANAGER = 'MANAGER',
+
+  STUDENT = 'STUDENT',
+
+  WORKING_PROFESSIONAL = 'WORKING_PROFESSIONAL',
+}

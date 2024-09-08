@@ -1,0 +1,139 @@
+<div>
+  <h2 id="page-heading" data-cy="PaymentHeading">
+    <span jhiTranslate="hostelMgmtApp.hostelMgmtPayment.home.title">Payments</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="hostelMgmtApp.hostelMgmtPayment.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-payment"
+        [routerLink]="['/hostelmgmt/payment/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="hostelMgmtApp.hostelMgmtPayment.home.createLabel">Create a new Payment</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (payments?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="hostelMgmtApp.hostelMgmtPayment.home.notFound">No Payments found</span>
+    </div>
+  }
+
+  @if (payments && payments.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="uuid">
+              <div class="d-flex">
+                <span jhiTranslate="hostelMgmtApp.hostelMgmtPayment.uuid">Uuid</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="mode">
+              <div class="d-flex">
+                <span jhiTranslate="hostelMgmtApp.hostelMgmtPayment.mode">Mode</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="date">
+              <div class="d-flex">
+                <span jhiTranslate="hostelMgmtApp.hostelMgmtPayment.date">Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="value">
+              <div class="d-flex">
+                <span jhiTranslate="hostelMgmtApp.hostelMgmtPayment.value">Value</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="status">
+              <div class="d-flex">
+                <span jhiTranslate="hostelMgmtApp.hostelMgmtPayment.status">Status</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="champ.id">
+              <div class="d-flex">
+                <span jhiTranslate="hostelMgmtApp.hostelMgmtPayment.champ">Champ</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (payment of payments; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/hostelmgmt/payment', payment.id, 'view']">{{ payment.id }}</a>
+              </td>
+              <td>{{ payment.uuid }}</td>
+              <td [jhiTranslate]="'hostelMgmtApp.PaymentMode.' + (payment.mode ?? 'null')">
+                {{ { null: '', UPI: 'UPI', CASH: 'CASH', CARD: 'CARD', NEFT: 'NEFT' }[payment.mode ?? 'null'] }}
+              </td>
+              <td>{{ payment.date | formatMediumDate }}</td>
+              <td>{{ payment.value }}</td>
+              <td [jhiTranslate]="'hostelMgmtApp.Status.' + (payment.status ?? 'null')">
+                {{
+                  { null: '', ACTIVE: 'ACTIVE', INACTIVE: 'INACTIVE', BL: 'BL', FAILED: 'FAILED', DELAYED: 'DELAYED', SUCCESS: 'SUCCESS' }[
+                    payment.status ?? 'null'
+                  ]
+                }}
+              </td>
+              <td>
+                @if (payment.champ) {
+                  <div>
+                    <a [routerLink]="['/hostelmgmt/champ', payment.champ.id, 'view']">{{ payment.champ.id }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/hostelmgmt/payment', payment.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/hostelmgmt/payment', payment.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(payment)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

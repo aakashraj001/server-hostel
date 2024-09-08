@@ -1,0 +1,43 @@
+{
+  "annotations": {
+    "changelogDate": "20240908070411"
+  },
+  "applications": ["hostelMgmt"],
+  "clientRootFolder": "hostelMgmt",
+  "databaseType": "sql",
+  "fields": [
+    {
+      "fieldName": "roomNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "RoomType",
+      "fieldValues": "AC,NON_AC"
+    },
+    {
+      "fieldName": "cost",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "beds",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "floor",
+      "fieldType": "Integer"
+    }
+  ],
+  "microserviceName": "hostelMgmt",
+  "name": "Room",
+  "relationships": [
+    {
+      "otherEntityName": "champ",
+      "otherEntityRelationshipName": "room",
+      "relationshipName": "champ",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

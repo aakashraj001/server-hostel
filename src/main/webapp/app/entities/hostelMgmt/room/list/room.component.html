@@ -1,0 +1,120 @@
+<div>
+  <h2 id="page-heading" data-cy="RoomHeading">
+    <span jhiTranslate="hostelMgmtApp.hostelMgmtRoom.home.title">Rooms</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="hostelMgmtApp.hostelMgmtRoom.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-room"
+        [routerLink]="['/hostelmgmt/room/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="hostelMgmtApp.hostelMgmtRoom.home.createLabel">Create a new Room</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (rooms?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="hostelMgmtApp.hostelMgmtRoom.home.notFound">No Rooms found</span>
+    </div>
+  }
+
+  @if (rooms && rooms.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="roomNo">
+              <div class="d-flex">
+                <span jhiTranslate="hostelMgmtApp.hostelMgmtRoom.roomNo">Room No</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="type">
+              <div class="d-flex">
+                <span jhiTranslate="hostelMgmtApp.hostelMgmtRoom.type">Type</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="cost">
+              <div class="d-flex">
+                <span jhiTranslate="hostelMgmtApp.hostelMgmtRoom.cost">Cost</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="beds">
+              <div class="d-flex">
+                <span jhiTranslate="hostelMgmtApp.hostelMgmtRoom.beds">Beds</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="floor">
+              <div class="d-flex">
+                <span jhiTranslate="hostelMgmtApp.hostelMgmtRoom.floor">Floor</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (room of rooms; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/hostelmgmt/room', room.id, 'view']">{{ room.id }}</a>
+              </td>
+              <td>{{ room.roomNo }}</td>
+              <td [jhiTranslate]="'hostelMgmtApp.RoomType.' + (room.type ?? 'null')">
+                {{ { null: '', AC: 'AC', NON_AC: 'NON_AC' }[room.type ?? 'null'] }}
+              </td>
+              <td>{{ room.cost }}</td>
+              <td>{{ room.beds }}</td>
+              <td>{{ room.floor }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/hostelmgmt/room', room.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/hostelmgmt/room', room.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(room)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

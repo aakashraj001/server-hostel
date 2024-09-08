@@ -1,0 +1,31 @@
+{
+  "annotations": {
+    "changelogDate": "20240908070711"
+  },
+  "applications": ["hostelMgmt"],
+  "clientRootFolder": "hostelMgmt",
+  "databaseType": "sql",
+  "fields": [
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "content",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    }
+  ],
+  "microserviceName": "hostelMgmt",
+  "name": "Document",
+  "relationships": [
+    {
+      "otherEntityName": "champ",
+      "otherEntityRelationshipName": "document",
+      "relationshipName": "champ",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

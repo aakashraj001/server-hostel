@@ -1,0 +1,30 @@
+{
+  "generator-jhipster": {
+    "applicationIndex": 0,
+    "applicationType": "microservice",
+    "authenticationType": "oauth2",
+    "baseName": "hostelMgmt",
+    "buildTool": "maven",
+    "clientFramework": "angular",
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "devServerPort": 4200,
+    "enableHibernateCache": false,
+    "entities": ["Champ", "Room", "Inventory", "Payment", "Document", "Hostel"],
+    "jhipsterVersion": "8.4.0",
+    "jwtSecretKey": "YmEwYTYxNjU5OTM2OTU4NTdkOGUzMTdmNGM4MDc0NWVjYjBhOGNkNjYyNmYzNTJiNDEyNzBiZmZkMjVmOTc0MjVjM2U5NTg5ZmVlMGI2NzBkZTAxOTI4NGM0NzYzNjBiNzE0MTMyOGY4NmVhMTZhY2QxOGUzMzFhMTg4YWNmZjM=",
+    "languages": ["en"],
+    "lastLiquibaseTimestamp": 1725779291000,
+    "messageBroker": "kafka",
+    "nativeLanguage": "en",
+    "packageFolder": "com/hostl/mgmt",
+    "packageName": "com.hostl.mgmt",
+    "prodDatabaseType": "postgresql",
+    "reactive": false,
+    "searchEngine": false,
+    "serverPort": "8123",
+    "serviceDiscoveryType": "consul",
+    "skipUserManagement": true,
+    "testFrameworks": ["cypress"]
+  }
+}

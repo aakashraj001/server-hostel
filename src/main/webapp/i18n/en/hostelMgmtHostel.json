@@ -1,0 +1,28 @@
+{
+  "hostelMgmtApp": {
+    "hostelMgmtHostel": {
+      "home": {
+        "title": "Hostels",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Hostel",
+        "createOrEditLabel": "Create or edit a Hostel",
+        "notFound": "No Hostels found"
+      },
+      "created": "A new Hostel is created with identifier {{ param }}",
+      "updated": "A Hostel is updated with identifier {{ param }}",
+      "deleted": "A Hostel is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Hostel {{ id }}?"
+      },
+      "detail": {
+        "title": "Hostel"
+      },
+      "id": "ID",
+      "name": "Name",
+      "address": "Address",
+      "capacity": "Capacity",
+      "noOfRooms": "No Of Rooms",
+      "floors": "Floors"
+    }
+  }
+}

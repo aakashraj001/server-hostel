@@ -1,0 +1,33 @@
+{
+  "hostelMgmtApp": {
+    "hostelMgmtChamp": {
+      "home": {
+        "title": "Champs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Champ",
+        "createOrEditLabel": "Create or edit a Champ",
+        "notFound": "No Champs found"
+      },
+      "created": "A new Champ is created with identifier {{ param }}",
+      "updated": "A Champ is updated with identifier {{ param }}",
+      "deleted": "A Champ is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Champ {{ id }}?"
+      },
+      "detail": {
+        "title": "Champ"
+      },
+      "id": "ID",
+      "name": "Name",
+      "login": "Login",
+      "password": "Password",
+      "type": "Type",
+      "status": "Status",
+      "address": "Address",
+      "mobileNo": "Mobile No",
+      "room": "Room",
+      "document": "Document",
+      "parent": "Parent"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "annotations": {
+    "changelogDate": "20240908070611"
+  },
+  "applications": ["hostelMgmt"],
+  "clientRootFolder": "hostelMgmt",
+  "databaseType": "sql",
+  "fields": [
+    {
+      "fieldName": "uuid",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "mode",
+      "fieldType": "PaymentMode",
+      "fieldValues": "UPI,CASH,CARD,NEFT"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "value",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Status",
+      "fieldValues": "ACTIVE,INACTIVE,BL,FAILED,DELAYED,SUCCESS"
+    }
+  ],
+  "microserviceName": "hostelMgmt",
+  "name": "Payment",
+  "relationships": [
+    {
+      "otherEntityName": "champ",
+      "relationshipName": "champ",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

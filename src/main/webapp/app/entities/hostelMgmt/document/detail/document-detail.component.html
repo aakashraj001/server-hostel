@@ -1,0 +1,51 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (document()) {
+      <div>
+        <h2 data-cy="documentDetailsHeading"><span jhiTranslate="hostelMgmtApp.hostelMgmtDocument.detail.title">Document</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ document()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="hostelMgmtApp.hostelMgmtDocument.type">Type</span></dt>
+          <dd>
+            <span>{{ document()!.type }}</span>
+          </dd>
+          <dt><span jhiTranslate="hostelMgmtApp.hostelMgmtDocument.content">Content</span></dt>
+          <dd>
+            @if (document()!.content) {
+              <div>
+                <a (click)="openFile(document()!.content ?? '', document()!.contentContentType)" jhiTranslate="entity.action.open">Open</a>
+                {{ document()!.contentContentType }}, {{ byteSize(document()!.content ?? '') }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="hostelMgmtApp.hostelMgmtDocument.champ">Champ</span></dt>
+          <dd>
+            @if (document()!.champ) {
+              <div>
+                <a [routerLink]="['/hostelmgmt/champ', document()!.champ?.id, 'view']">{{ document()!.champ?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/hostelmgmt/document', document()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

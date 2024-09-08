@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (room()) {
+      <div>
+        <h2 data-cy="roomDetailsHeading"><span jhiTranslate="hostelMgmtApp.hostelMgmtRoom.detail.title">Room</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ room()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="hostelMgmtApp.hostelMgmtRoom.roomNo">Room No</span></dt>
+          <dd>
+            <span>{{ room()!.roomNo }}</span>
+          </dd>
+          <dt><span jhiTranslate="hostelMgmtApp.hostelMgmtRoom.type">Type</span></dt>
+          <dd>
+            <span [jhiTranslate]="'hostelMgmtApp.RoomType.' + (room()!.type ?? 'null')">{{
+              { null: '', AC: 'AC', NON_AC: 'NON_AC' }[room()!.type ?? 'null']
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="hostelMgmtApp.hostelMgmtRoom.cost">Cost</span></dt>
+          <dd>
+            <span>{{ room()!.cost }}</span>
+          </dd>
+          <dt><span jhiTranslate="hostelMgmtApp.hostelMgmtRoom.beds">Beds</span></dt>
+          <dd>
+            <span>{{ room()!.beds }}</span>
+          </dd>
+          <dt><span jhiTranslate="hostelMgmtApp.hostelMgmtRoom.floor">Floor</span></dt>
+          <dd>
+            <span>{{ room()!.floor }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/hostelmgmt/room', room()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,108 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-champ-heading" data-cy="ChampCreateUpdateHeading" jhiTranslate="hostelMgmtApp.hostelMgmtChamp.home.createOrEditLabel">
+        Create or edit a Champ
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="hostelMgmtApp.hostelMgmtChamp.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_name" jhiTranslate="hostelMgmtApp.hostelMgmtChamp.name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_login" jhiTranslate="hostelMgmtApp.hostelMgmtChamp.login">Login</label>
+          <input type="text" class="form-control" name="login" id="field_login" data-cy="login" formControlName="login" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_password" jhiTranslate="hostelMgmtApp.hostelMgmtChamp.password">Password</label>
+          <input type="text" class="form-control" name="password" id="field_password" data-cy="password" formControlName="password" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_type" jhiTranslate="hostelMgmtApp.hostelMgmtChamp.type">Type</label>
+          <select class="form-control" name="type" formControlName="type" id="field_type" data-cy="type">
+            <option [ngValue]="null">{{ 'hostelMgmtApp.UserType.null' | translate }}</option>
+            @for (userType of userTypeValues; track $index) {
+              <option [value]="userType">{{ 'hostelMgmtApp.UserType.' + userType | translate }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_status" jhiTranslate="hostelMgmtApp.hostelMgmtChamp.status">Status</label>
+          <select class="form-control" name="status" formControlName="status" id="field_status" data-cy="status">
+            <option [ngValue]="null">{{ 'hostelMgmtApp.Status.null' | translate }}</option>
+            @for (status of statusValues; track $index) {
+              <option [value]="status">{{ 'hostelMgmtApp.Status.' + status | translate }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_address" jhiTranslate="hostelMgmtApp.hostelMgmtChamp.address">Address</label>
+          <textarea class="form-control" name="address" id="field_address" data-cy="address" formControlName="address"></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_mobileNo" jhiTranslate="hostelMgmtApp.hostelMgmtChamp.mobileNo">Mobile No</label>
+          <input type="number" class="form-control" name="mobileNo" id="field_mobileNo" data-cy="mobileNo" formControlName="mobileNo" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_room" jhiTranslate="hostelMgmtApp.hostelMgmtChamp.room">Room</label>
+          <select class="form-control" id="field_room" data-cy="room" name="room" formControlName="room" [compareWith]="compareRoom">
+            <option [ngValue]="null"></option>
+            @for (roomOption of roomsCollection; track $index) {
+              <option [ngValue]="roomOption">{{ roomOption.id }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_parent" jhiTranslate="hostelMgmtApp.hostelMgmtChamp.parent">Parent</label>
+          <select
+            class="form-control"
+            id="field_parent"
+            data-cy="parent"
+            name="parent"
+            formControlName="parent"
+            [compareWith]="compareChamp"
+          >
+            <option [ngValue]="null"></option>
+            @for (champOption of champsSharedCollection; track $index) {
+              <option [ngValue]="champOption">{{ champOption.id }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

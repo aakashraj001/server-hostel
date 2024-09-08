@@ -1,0 +1,64 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (payment()) {
+      <div>
+        <h2 data-cy="paymentDetailsHeading"><span jhiTranslate="hostelMgmtApp.hostelMgmtPayment.detail.title">Payment</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ payment()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="hostelMgmtApp.hostelMgmtPayment.uuid">Uuid</span></dt>
+          <dd>
+            <span>{{ payment()!.uuid }}</span>
+          </dd>
+          <dt><span jhiTranslate="hostelMgmtApp.hostelMgmtPayment.mode">Mode</span></dt>
+          <dd>
+            <span [jhiTranslate]="'hostelMgmtApp.PaymentMode.' + (payment()!.mode ?? 'null')">{{
+              { null: '', UPI: 'UPI', CASH: 'CASH', CARD: 'CARD', NEFT: 'NEFT' }[payment()!.mode ?? 'null']
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="hostelMgmtApp.hostelMgmtPayment.date">Date</span></dt>
+          <dd>
+            <span>{{ payment()!.date | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="hostelMgmtApp.hostelMgmtPayment.value">Value</span></dt>
+          <dd>
+            <span>{{ payment()!.value }}</span>
+          </dd>
+          <dt><span jhiTranslate="hostelMgmtApp.hostelMgmtPayment.status">Status</span></dt>
+          <dd>
+            <span [jhiTranslate]="'hostelMgmtApp.Status.' + (payment()!.status ?? 'null')">{{
+              { null: '', ACTIVE: 'ACTIVE', INACTIVE: 'INACTIVE', BL: 'BL', FAILED: 'FAILED', DELAYED: 'DELAYED', SUCCESS: 'SUCCESS' }[
+                payment()!.status ?? 'null'
+              ]
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="hostelMgmtApp.hostelMgmtPayment.champ">Champ</span></dt>
+          <dd>
+            @if (payment()!.champ) {
+              <div>
+                <a [routerLink]="['/hostelmgmt/champ', payment()!.champ?.id, 'view']">{{ payment()!.champ?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/hostelmgmt/payment', payment()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>
