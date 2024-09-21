@@ -1,0 +1,29 @@
+{
+  "generator-jhipster": {
+    "applicationType": "microservice",
+    "authenticationType": "oauth2",
+    "baseName": "hostelMgmt",
+    "buildTool": "maven",
+    "clientFramework": "react",
+    "creationTimestamp": 1726861620421,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "devServerPort": 9060,
+    "enableHibernateCache": false,
+    "entities": [],
+    "jhipsterVersion": "8.5.0",
+    "jwtSecretKey": "YmYwMDE1MTJmMTllMDI2ZjRkZDU4YTdmYmU0MzIxN2FiZWU4MzVkNzIwNDYwM2JjODQ1NGE2M2RkOTFhNmMyZDk4ZTg5YzBmYmUwYzBhODgyOGNiMTAyODdmZDY4MDU3MDFhY2MyNjAwZDYzODViMDQyZGE5YWZlY2Q4M2RmZjg=",
+    "languages": ["en"],
+    "lastLiquibaseTimestamp": 1726851970000,
+    "nativeLanguage": "en",
+    "packageFolder": "com/hostl/mgmt",
+    "packageName": "com.hostl.mgmt",
+    "prodDatabaseType": "postgresql",
+    "reactive": false,
+    "searchEngine": false,
+    "serverPort": "8123",
+    "serviceDiscoveryType": "consul",
+    "skipUserManagement": true,
+    "testFrameworks": ["cypress"]
+  }
+}
