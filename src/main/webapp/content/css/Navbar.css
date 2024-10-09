@@ -1,0 +1,72 @@
+/* Navbar.css */
+.navbar {
+  background-color: var(--baseOne);
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.navbar .nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.7vh 1rem;
+  border-radius: 8px;
+  color: #b0b0b0;
+  text-decoration: none;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  background-color: #2f2f2f;
+  color: #fff;
+}
+
+.navbar .nav-link img {
+  margin-right: 0.5rem;
+}
+
+.navbar .nav-link.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.navbar .icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar .icon {
+  background-color: #2f2f2f;
+  border-radius: 50%;
+  padding: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.navbar .icon:hover {
+  background-color: #3a3a3a;
+}
+
+.calendar-container {
+  position: relative;
+}
+
+.calendar-popup {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #2f2f2f;
+  border-radius: 8px;
+  padding: 1rem;
+  z-index: 10;
+}
+
+.calendar-container:hover .calendar-popup {
+  display: block;
+}

@@ -312,4 +312,17 @@ http://stackoverflow.com/questions/23436430/bootstrap-3-input-group-100-width */
   width: 1% !important;
 }
 
+/* Add this to your globals.css file or any other CSS file */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.popbox {
+  margin-top: 0px !important;
+}
+
 /* jhipster-needle-scss-add-main JHipster will add new css style */

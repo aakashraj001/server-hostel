@@ -1,0 +1,23 @@
+.placeholder-white::placeholder {
+  color: white;
+}
+
+/* For WebKit browsers (Chrome, Safari, Edge) */
+.placeholder-white::-webkit-.placeholder-white-placeholder {
+  color: white;
+}
+
+/* For Mozilla Firefox 19+ */
+.placeholder-white::-moz-placeholder {
+  color: white;
+}
+
+/* For Mozilla Firefox 4 to 18 */
+.placeholder-white:-moz-placeholder {
+  color: white;
+}
+
+/* For Internet Explorer 10-11 */
+.placeholder-white:-ms-.placeholder-white-placeholder {
+  color: white;
+}
