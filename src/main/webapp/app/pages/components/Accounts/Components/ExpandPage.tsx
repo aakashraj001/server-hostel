@@ -1,9 +1,5 @@
 import { creditdetails } from '../interfaces/Accounts.model';
-import colapselogo from '../../../../../content/images/images/colapselogo.svg';
-import excellogo from '../../../assets/images/excellogo.svg';
 import { useContext, useState } from 'react';
-import prevArrow from '../../../../../content/images/prevArrow.svg';
-import nextArrow from '../../../../../content/images/nextArrow.svg';
 import { ContextData, ContextValueType } from 'app/shared/contextdata/Context';
 import Creditdetails from './Creditdetails';
 import Debitdetails from './Debitdetails';
@@ -82,9 +78,7 @@ const ExpandPage = ({ props, heading }: Types) => {
     },
   ];
 
-  const { creditPage, debitPage, setdebitPage, setcreditPage, setcreditExpand, setdebitExpand } = useContext(
-    ContextData,
-  ) as ContextValueType;
+  const { creditPage, debitPage, setdebitPage, setcreditPage, setcreditExpand, setdebitExpand } = useContext(ContextData);
   const handlecredit = (value: string) => {
     setcreditPage(true);
   };
@@ -108,14 +102,24 @@ const ExpandPage = ({ props, heading }: Types) => {
             <h2 className="text-xl text-center text-PrimaryText font-semibold">{heading}</h2>
 
             {heading === 'Credit History' ? (
-              <img src={colapselogo} alt="loading" className="w-7 h-7 cursor-pointer" onClick={handleCreditexpand} />
+              <img
+                src="../../../../../content/images/images/colapselogo.svg"
+                alt="loading"
+                className="w-7 h-7 cursor-pointer"
+                onClick={handleCreditexpand}
+              />
             ) : (
-              <img src={colapselogo} alt="loading" className="w-7 h-7 cursor-pointer" onClick={handleDebitExpand} />
+              <img
+                src="../../../../../content/images/images/colapselogo.svg"
+                alt="loading"
+                className="w-7 h-7 cursor-pointer"
+                onClick={handleDebitExpand}
+              />
             )}
           </div>
           <div className="flex gap-11">
             <div className="flex gap-3 whitespace-nowrap bg-[#20744A] px-3 py-2 rounded-md">
-              <img src={excellogo} alt="loading" className="w-4 h-4 mt-1.5" />
+              <img src="../../../../../content/images/images/excellogo.svg" alt="loading" className="w-4 h-4 mt-1.5" />
               <h3 className="text-base font-medium">Export Data</h3>
             </div>
             <div className="flex gap-3 text-PrimaryText">
@@ -182,7 +186,7 @@ const ExpandPage = ({ props, heading }: Types) => {
         </div>
         <div className="flex text-PrimaryText space-x-3 mt-[3vh] ml-[25vw]">
           <div className="flex gap-2 cursor-pointer" onClick={handlePrev}>
-            <img src={prevArrow} alt="loading" className="w-3 h-3 mt-[1vh]" />
+            <img src="../../../../../content/images/prevArrow.svg" alt="loading" className="w-3 h-3 mt-[1vh]" />
             <h3>Prev</h3>
           </div>
           <div className="flex px-1">
@@ -205,7 +209,7 @@ const ExpandPage = ({ props, heading }: Types) => {
             )}
             <div className="flex gap-2 px-5 cursor-pointer" onClick={handleNext}>
               <h3>Next</h3>
-              <img src={nextArrow} alt="loading" className="w-3 h-3 mt-[1vh]" />
+              <img src="../../../../../content/images/nextArrow.svg" alt="loading" className="w-3 h-3 mt-[1vh]" />
             </div>
           </div>
         </div>

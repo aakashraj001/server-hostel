@@ -1,5 +1,6 @@
 // import ThemeSwitcher from "../../logic/functions";
 
+import React from 'react';
 import Hostel from './components/occupancy/hostel';
 import SearchIcon from '@mui/icons-material/Search';
 

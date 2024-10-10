@@ -1,10 +1,5 @@
 import DoughnutChart from '../../DoughnutChart';
-import linklogo from '../../../assets/images/linklogo.svg';
-import yellowlinklogo from '../../../assets/images/yellowlinklogo.svg';
-import pinklinklogo from '../../../assets/images/pinklinklogo.svg';
-import skylinklogo from '../../../assets/images/skylinklogo.svg';
 import AreaGraph from '../Components/AreaGraph';
-import expnadlogo from '../../../assets/images/expandlogo.svg';
 import { ContextData, ContextValueType } from '../../../../shared/contextdata/Context';
 import { useContext } from 'react';
 
@@ -510,7 +505,7 @@ const Debit = () => {
           <div className="col-span-8 bg-third rounded-lg">
             <div className="flex gap-2 mx-6 my-3">
               <h3 className="text-white font-montserrat text-lg font-semibold">Fees Collection</h3>
-              <img src={linklogo} alt="loading" />
+              <img src="../../../../../content/images/linklogo.svg" alt="loading" />
             </div>
             <div className="grid  grid-cols-6">
               <div className="px-5 py-7 col-span-2">
@@ -522,7 +517,7 @@ const Debit = () => {
                     <h3 className="text-base font-montserrat font-normal">Expected</h3>
                     <h2 className="text-2xl font-semibold whitespace-nowrap">&#8377; 52,00,000</h2>
                   </div>
-                  <img src={linklogo} alt="loading" className="w-[22px] h-[22px] my-auto mr-3" />
+                  <img src="../../../../../content/images/linklogo.svg" alt="loading" className="w-[22px] h-[22px] my-auto mr-3" />
                 </div>
 
                 <div className="col-span-2">
@@ -531,7 +526,7 @@ const Debit = () => {
                       <h3 className="text-base font-montserrat font-normal">Collected</h3>
                       <h2 className="text-2xl text-[#00FFF5]  font-semibold">&#8377; 26,00,000</h2>
                     </div>
-                    <img src={skylinklogo} alt="loading" className="w-[22px] h-[22px] my-auto" />
+                    <img src="../../../../../content/images/skylinklogo.svg" alt="loading" className="w-[22px] h-[22px] my-auto" />
                   </div>
                 </div>
               </div>
@@ -542,7 +537,7 @@ const Debit = () => {
                       <h3 className="text-base font-montserrat font-normal">Remaining</h3>
                       <h2 className="text-2xl font-semibold text-[#FFE605]">&#8377; 15,60,000</h2>
                     </div>
-                    <img src={yellowlinklogo} alt="loading" className="w-[22px] h-[22px] my-auto" />
+                    <img src="../../../../../content/images/yellowlinklogo.svg" alt="loading" className="w-[22px] h-[22px] my-auto" />
                   </div>
                 </div>
                 <div className="col-span-2">
@@ -551,7 +546,7 @@ const Debit = () => {
                       <h3 className="text-base font-montserrat font-normal">Overdue</h3>
                       <h2 className="text-2xl text-[#FF05C8] font-semibold">&#8377; 10,40,000</h2>
                     </div>
-                    <img src={pinklinklogo} alt="loading" className="w-[22px] h-[22px] my-auto" />
+                    <img src="../../../../../content/images/pinklinklogo.svg" alt="loading" className="w-[22px] h-[22px] my-auto" />
                   </div>
                 </div>
               </div>
@@ -568,7 +563,7 @@ const Debit = () => {
             <div className="sticky">
               <div className="flex gap-3 px-3 py-3 text-white">
                 <h3 className="text-xl font-semibold">Debit</h3>
-                <img src={expnadlogo} alt="loading" onClick={handleDebitExpand} />
+                <img src="../../../../../content/images/expandlogo.svg" alt="loading" onClick={handleDebitExpand} />
               </div>
             </div>
             <div className="relative overflow-y-scroll h-[70vh] mx-3 my-1 hide-scrollbar ">

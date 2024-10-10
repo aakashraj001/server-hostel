@@ -1,11 +1,7 @@
 import DoughnutChart from '../DoughnutChart';
-import linklogo from '../../assets/images/linklogo.svg';
-import yellowlinklogo from '../../assets/images/yellowlinklogo.svg';
-import pinklinklogo from '../../assets/images/pinklinklogo.svg';
-import skylinklogo from '../../assets/images/skylinklogo.svg';
 import StudentUpdates from '../StudentUpdates';
 import React from 'react';
-// import emergencyicon from '../../assets/images/Emergencyicon.svg';
+// import emergencyicon from '../../../../content/images/Emergencyicon.svg';
 
 const Analytics = () => {
   const firstchart = [50, 50];
@@ -22,13 +18,13 @@ const Analytics = () => {
         <div className="row-span-8 grid rounded-lg bg-[#202020]">
           <div className=" row-span-1   mx-6 my-3 flex gap-2 h-[15px] ">
             <h3 className=" text-white font-montserrat font-semibold text-xl">Occupancy</h3>
-            <img src={linklogo} alt="loading" className="w-[12px] h-[12px] my-2.5" />
+            <img src="../../../../content/images/linklogo.svg" alt="loading" className="w-[12px] h-[12px] my-2.5" />
           </div>
           <div className=" row-span-7 mx-6 my-3  grid  grid-cols-3 gap-9">
             <div className="bg-[#111111] rounded-lg">
               <div className="flex gap-2 py-3 px-2">
                 <h3 className="text-white font-montserrat text-lg font-semibold">Hostel 1</h3>
-                <img src={linklogo} alt="loading" />
+                <img src="../../../../content/images/linklogo.svg" alt="loading" />
               </div>
               <div className="mx-[3vw] my-[7vh]">
                 <DoughnutChart dataprops={firstchart} colorprops={firstcolor} />
@@ -37,7 +33,7 @@ const Analytics = () => {
             <div className="bg-[#111111] rounded-lg">
               <div className="flex gap-2 py-3 px-2">
                 <h3 className="text-white font-montserrat text-lg font-semibold">Hostel 2</h3>
-                <img src={linklogo} alt="loading" />
+                <img src="../../../../content/images/linklogo.svg" alt="loading" />
               </div>
               <div className="mx-[3vw] my-[7vh]">
                 <DoughnutChart dataprops={secondchart} colorprops={secondcolor} />
@@ -46,7 +42,7 @@ const Analytics = () => {
             <div className="bg-[#111111] rounded-lg">
               <div className="flex gap-2 py-3 px-2">
                 <h3 className="text-white font-montserrat text-lg font-semibold">Hostel 3</h3>
-                <img src={linklogo} alt="loading" />
+                <img src="../../../../content/images/linklogo.svg" alt="loading" />
               </div>
               <div className="mx-[3vw] my-[7vh]">
                 <DoughnutChart dataprops={thirdchart} colorprops={thirdcolor} />
@@ -58,7 +54,7 @@ const Analytics = () => {
         <div className="row-span-6 w-full rounded-lg dark:bg-[#202020] ">
           <div className="flex gap-2 mx-6 my-3">
             <h3 className="text-white font-montserrat text-lg font-semibold">Fees Collection</h3>
-            <img src={linklogo} alt="loading" />
+            <img src="../../../../content/images/linklogo.svg" alt="loading" />
           </div>
           <div className="grid  grid-cols-6">
             <div className="px-5 py-7 col-span-2">
@@ -70,7 +66,7 @@ const Analytics = () => {
                   <h3 className="text-base font-montserrat font-normal">Expected</h3>
                   <h2 className="text-2xl font-semibold whitespace-nowrap">&#8377; 52,00,000</h2>
                 </div>
-                <img src={linklogo} alt="loading" className="w-[22px] h-[22px] my-auto mr-3" />
+                <img src="../../../../content/images/linklogo.svg" alt="loading" className="w-[22px] h-[22px] my-auto mr-3" />
               </div>
 
               <div className="col-span-2">
@@ -79,7 +75,7 @@ const Analytics = () => {
                     <h3 className="text-base font-montserrat font-normal">Collected</h3>
                     <h2 className="text-2xl text-[#00FFF5]  font-semibold">&#8377; 26,00,000</h2>
                   </div>
-                  <img src={skylinklogo} alt="loading" className="w-[22px] h-[22px] my-auto" />
+                  <img src="../../../../content/images/skylinklogo.svg" alt="loading" className="w-[22px] h-[22px] my-auto" />
                 </div>
               </div>
             </div>
@@ -90,7 +86,7 @@ const Analytics = () => {
                     <h3 className="text-base font-montserrat font-normal">Remaining</h3>
                     <h2 className="text-2xl font-semibold text-[#FFE605]">&#8377; 15,60,000</h2>
                   </div>
-                  <img src={yellowlinklogo} alt="loading" className="w-[22px] h-[22px] my-auto" />
+                  <img src="../../../../content/images/yellowlinklogo.svg" alt="loading" className="w-[22px] h-[22px] my-auto" />
                 </div>
               </div>
               <div className="col-span-2">
@@ -99,7 +95,7 @@ const Analytics = () => {
                     <h3 className="text-base font-montserrat font-normal">Overdue</h3>
                     <h2 className="text-2xl text-[#FF05C8] font-semibold">&#8377; 10,40,000</h2>
                   </div>
-                  <img src={pinklinklogo} alt="loading" className="w-[22px] h-[22px] my-auto" />
+                  <img src="../../../../content/images/pinklinklogo.svg" alt="loading" className="w-[22px] h-[22px] my-auto" />
                 </div>
               </div>
             </div>
@@ -110,7 +106,7 @@ const Analytics = () => {
         <div className=" row-span-3  rounded-lg bg-[#202020] ">
           <div className="flex gap-2  mx-6 my-3">
             <h3 className="text-xl text-white font-semibold font-montserrat">Complaints</h3>
-            <img src={linklogo} alt="loading " />
+            <img src="../../../../content/images/linklogo.svg" alt="loading " />
           </div>
           <div className="grid grid-cols-10 gap-3 w-[12ve]">
             <div className="col-span-3 flex rounded-lg px-3">
@@ -121,21 +117,21 @@ const Analytics = () => {
             <div className="col-span-2 px-1 rounded-lg bg-[#111111]">
               <div className="flex gap-2 px-3 py-1">
                 <h3 className="text-base font-montserrat font-normal text-white">Total Complaints</h3>
-                <img src={linklogo} alt="loading" />
+                <img src="../../../../content/images/linklogo.svg" alt="loading" />
               </div>
               <div className="text-white font-semibold text-2xl px-3">158</div>
             </div>
             <div className="col-span-2 px-1  rounded-lg bg-[#111111]">
               <div className="flex gap-2 px-3 py-1">
                 <h3 className="text-base font-montserrat font-normal text-[#00FFF5]">Resolved</h3>
-                <img src={linklogo} alt="loading" />
+                <img src="../../../../content/images/linklogo.svg" alt="loading" />
               </div>
               <div className="px-3 text-white font-semibold text-2xl">96</div>
             </div>
             <div className="col-span-2 px-1  rounded-lg mr-4 bg-[#111111]">
               <div className="flex gap-2 px-3 py-1">
                 <h3 className="text-base font-montserrat font-normal text-[#FFE605]">Open</h3>
-                <img src={linklogo} alt="loading" />
+                <img src="../../../../content/images/linklogo.svg" alt="loading" />
               </div>
               <div className="text-white px-3 py-1 font-semibold text-2xl">62</div>
             </div>

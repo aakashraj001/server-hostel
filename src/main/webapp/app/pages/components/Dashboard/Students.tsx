@@ -1,17 +1,12 @@
-import linklogo from '../../assets/images/linklogo.svg';
-import searchicon from '../../assets/images/searchicon.svg';
-import filtericon from '../../assets/images/filtericon.svg';
-import userlogo from '../../assets/images/UserIcon.svg';
-import eyeicon from '../../assets/images/eyeicon.svg';
-import '../../assets/styles/Dashboard_Students.css';
-import calander from '../../assets/images/calander.svg';
+import '../../../../content/styles/Dashboard_Students.css';
 import StudentUpdates from '../StudentUpdates';
 import { useContext, useState } from 'react';
 import AddStudentForm from '../DashboardComponents/AddStudentForm';
-import { ContextData, ContextValueType } from '../../contextdata/Context';
+import { ContextData, ContextValueType } from '../../../shared/contextdata/Context';
+import React from 'react';
 
 const Students = () => {
-  const { student, setStudentAdd } = useContext(ContextData) as ContextValueType;
+  const { student, setStudentAdd } = useContext(ContextData);
 
   const [Remove, setRemove] = useState(false);
 
@@ -127,14 +122,14 @@ const Students = () => {
               <div className=" bg-primary text-white rounded-lg py-3 px-3 my-3 mx-3">
                 <div className="flex gap-3 ">
                   <h3 className="text-base font-montserrat">Total Students</h3>
-                  <img src={linklogo} alt="loading " />
+                  <img src="../../../../content/images/linklogo.svg" alt="loading " />
                 </div>
                 <p className="text-2xl font-medium"> 3569</p>
               </div>
               <div className=" bg-primary text-white rounded-lg py-3 px-3 my-3 mx-3">
                 <div className="flex gap-3 ">
                   <h3 className="text-base font-montserrat">Students Assigned</h3>
-                  <img src={linklogo} alt="loading " />
+                  <img src="../../../../content/images/linklogo.svg" alt="loading " />
                 </div>
                 <p className=" text-2xl font-medium  text-pinkcolor">2569</p>
               </div>
@@ -143,14 +138,14 @@ const Students = () => {
               <div className=" bg-primary text-white rounded-lg py-3 px-3 my-3 mx-3">
                 <div className="flex gap-3 ">
                   <h3 className="text-base font-montserrat">In Hostel</h3>
-                  <img src={linklogo} alt="loading " />
+                  <img src="../../../../content/images/linklogo.svg" alt="loading " />
                 </div>
                 <p className="text-2xl text-skybluecolor font-medium"> 1569</p>
               </div>
               <div className=" bg-primary text-white rounded-lg py-3 px-3 my-3 mx-3">
                 <div className="flex gap-3 ">
                   <h3 className="text-base font-montserrat">Students Removed</h3>
-                  <img src={linklogo} alt="loading " />
+                  <img src="../../../../content/images/linklogo.svg" alt="loading " />
                 </div>
                 <p className=" text-2xl font-medium text-redcolor ">1000</p>
               </div>
@@ -159,7 +154,7 @@ const Students = () => {
               <div className=" bg-primary text-white rounded-lg py-3 px-3 my-3 mx-3">
                 <div className="flex gap-3 ">
                   <h3 className="text-base font-montserrat">Outside Hostel</h3>
-                  <img src={linklogo} alt="loading " />
+                  <img src="../../../../content/images/linklogo.svg" alt="loading " />
                 </div>
                 <p className="text-2xl font-medium text-greycolor">2500</p>
               </div>
@@ -168,7 +163,7 @@ const Students = () => {
               <div className=" bg-primary text-white rounded-lg py-5 px-3 my-3 mx-3">
                 <div className="flex gap-3 ">
                   <h3 className="text-base font-montserrat">Fees Defaulters</h3>
-                  <img src={linklogo} alt="loading " />
+                  <img src="../../../../content/images/linklogo.svg" alt="loading " />
                 </div>
                 <p className="text-[32px] leading-[2.5rem] text-yellowcolor font-semibold">150</p>
                 <button className=" bg-fourth text-white rounded-lg text-xl font-medium py-3 px-12 my-3 mx-3">View List</button>
@@ -181,15 +176,15 @@ const Students = () => {
             <div className="sticky">
               <div className=" flex gap-1 align-middle px-3 py-3">
                 <h3 className="text-white text-base">Students</h3>
-                <img src={linklogo} alt="loading" className="" />
+                <img src="../../../../content/images/linklogo.svg" alt="loading" className="" />
               </div>
               <div className=" grid grid-cols-6 gap-3 mx-3 my-3">
                 <div className="col-span-4 bg-primary rounded-lg flex gap-1 py-3 px-3">
-                  <img src={searchicon} alt="loading" className="" />
+                  <img src="../../../../content/images/searchicon.svg" alt="loading" className="" />
                   <h3 className="text-greycolor my-auto text-base">Search...</h3>
                 </div>
                 <div className="col-span-2 flex gap-3 rounded-lg bg-fifth px-3 py-3">
-                  <img src={filtericon} alt="loading" className="" />
+                  <img src="../../../../content/images/filtericon.svg" alt="loading" className="" />
                   <h3 className="my-auto text-white text-base">Filter</h3>
                 </div>
               </div>
@@ -199,10 +194,10 @@ const Students = () => {
                 {details.map(detail => (
                   <div key={detail.name} className="flex justify-between rounded-xl my-3 text-white bg-primary py-3">
                     <div className="flex gap-3">
-                      <img src={userlogo} alt="loading" className="pl-3" />
+                      <img src="../../../../content/images/UserIcon.svg" alt="loading" className="pl-3" />
                       <h3>{detail.name}</h3>
                     </div>
-                    <img src={eyeicon} alt="loading" className="pr-3" />
+                    <img src="../../../../content/images/eyeicon.svg" alt="loading" className="pr-3" />
                   </div>
                 ))}
               </div>
@@ -212,11 +207,11 @@ const Students = () => {
             <div className="sticky rounded-lg">
               <div className=" flex gap-1 align-middle px-3 py-3">
                 <h3 className="text-white text-base">Defaulters Students</h3>
-                <img src={linklogo} alt="loading" className="" />
+                <img src="../../../../content/images/linklogo.svg" alt="loading" className="" />
               </div>
               <div className=" grid grid-cols-6 gap-3 mx-3 my-3">
                 <div className="col-span-4 bg-primary rounded-lg flex gap-1 py-3 px-3">
-                  <img src={searchicon} alt="loading" className="" />
+                  <img src="../../../../content/images/searchicon.svg" alt="loading" className="" />
                   <h3 className="text-greycolor my-auto text-base">Search...</h3>
                 </div>
                 <div className="col-span-2 flex gap-3 rounded-lg bg-fifth px-3 py-3">
@@ -230,16 +225,16 @@ const Students = () => {
                   <div key={detail.name} className="flex flex-col rounded-xl my-3 text-white bg-primary py-3">
                     <div className="flex justify-between">
                       <div className="flex gap-3">
-                        <img src={userlogo} alt="loading" className="pl-3" />
+                        <img src="../../../../content/images/UserIcon.svg" alt="loading" className="pl-3" />
                         <h3>{detail.name}</h3>
                       </div>
-                      <img src={eyeicon} alt="loading" className="pr-3" />
+                      <img src="../../../../content/images/eyeicon.svg" alt="loading" className="pr-3" />
                     </div>
                     <p className="px-3 py-5">{detail.complaint}</p>
                     <div className="flex gap-3 mx-3 mb-3">
                       <button className="border-2 border-[#2E2E2E] px-3 py-1 rounded-lg">Fine: {detail.fine}</button>
                       <button className="flex gap-1 border-2 border-[#2E2E2E] px-3 py-1 rounded-lg text-center ">
-                        <img src={calander} alt="loading" className="h-[3vh]" />
+                        <img src="../../../../content/images/calander.svg" alt="loading" className="h-[3vh]" />
                         {detail.Date}
                       </button>
                     </div>

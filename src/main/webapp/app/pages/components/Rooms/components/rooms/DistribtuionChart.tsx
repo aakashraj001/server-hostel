@@ -1,3 +1,4 @@
+import React from 'react';
 import { chartProps } from '../../interface/rooms.model';
 
 const DistributionChart = ({ props }: chartProps) => {

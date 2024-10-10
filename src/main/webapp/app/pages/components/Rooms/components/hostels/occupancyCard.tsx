@@ -1,7 +1,7 @@
 import React from 'react';
 import DoughnutChart from '../../../DoughnutChart';
 // import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import HomeIcon from '@mui/icons-material/ArrowForwardIosRounded';
+// import HomeIcon from '@mui/icons-material/ArrowForwardIosRounded';
 
 interface HostelProps {
   hostel: {

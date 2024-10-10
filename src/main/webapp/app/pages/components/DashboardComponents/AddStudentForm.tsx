@@ -1,8 +1,9 @@
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import FormikControl from '../../formData/FormikControl';
-import { ContextData, ContextValueType } from '../../contextdata/Context';
+import FormikControl from '../../components/formData/FormikControl';
+import { ContextData, ContextValueType } from '../../../shared/contextdata/Context';
 import { useContext } from 'react';
+import React from 'react';
 
 interface formValuetypeof {
   [key: string]: string;
@@ -56,11 +57,19 @@ const AddStudentForm = () => {
   const onSubmit = async (values: formValuetypeof) => {
     const data = new FormData();
     for (const key in values) {
-      data.append(key, values[key]);
+      if (Object.prototype.hasOwnProperty.call(values, key)) {
+        data.append(key, values[key]);
+      }
     }
+
+    // Example of awaiting an API call
+    await fetch('/your-api-endpoint', {
+      method: 'POST',
+      body: data,
+    });
   };
 
-  const { setStudentAdd } = useContext(ContextData) as ContextValueType;
+  const { setStudentAdd } = useContext(ContextData);
   const handleClick = () => {
     setStudentAdd(false);
   };

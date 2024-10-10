@@ -1,21 +1,23 @@
 import { Route, Routes } from 'react-router-dom';
-import DashBoard from '../Pages/DashBoard';
-import Room from '../Pages/Room';
-import Maintenanace from '../Pages/Maintenanace';
-import Accounts from '../Pages/Accounts';
-import Analytics from '../components/Dashboard/Analytics';
-import Students from '../components/Dashboard/Students';
-import AccountsDashboard from '../components/Accounts/Pages/Dashboard';
-import Credit from '../components/Accounts/Pages/Credit';
-import Debit from '../components/Accounts/Pages/Debit';
-import Occupancy from '../components/Rooms/Occupancy';
-import Hostels from '../components/Rooms/Hostels';
-import PrivateComponent from '../components/AuthComponents/PrivateComponent';
-import Login from '../Pages/Login';
-import SignUp from '../Pages/SignUp';
+import DashBoard from '../pages/DashBoard';
+import Room from '../pages/Room';
+import Maintenanace from '../pages/Maintenanace';
+import Accounts from '../pages/Accounts';
+import Analytics from 'app/pages/components/Dashboard/Analytics';
+import Students from 'app/pages/components/Dashboard/Students';
+import AccountsDashboard from 'app/pages/components/Accounts/Pages/Dashboard';
+import Credit from 'app/pages/components/Accounts/Pages/Credit';
+import Debit from 'app/pages/components/Accounts/Pages/Debit';
+import Occupancy from 'app/pages/components/Rooms/Occupancy';
+import Hostel from 'app/pages/components/Rooms/components/occupancy/hostel';
+import PrivateComponent from 'app/pages/components/AuthComponents/PrivateComponent';
+import Login from '../pages/Login';
+import SignUp from '../pages/SignUp';
 // import Assigned from '../components/Rooms/Assigned';
-import Rooms from '../components/Rooms/Rooms';
-import Assigned from '../components/Rooms/Assigned';
+import Rooms from 'app/pages/components/Rooms/Rooms';
+import Assigned from 'app/pages/components/Rooms/Assigned';
+import React from 'react';
+import Hostels from 'app/pages/components/Rooms/Hostels';
 
 const AllRoutes = () => {
   return (

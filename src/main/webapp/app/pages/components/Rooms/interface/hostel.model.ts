@@ -8,7 +8,7 @@ export interface Hostel {
   id: number;
   name: string;
   occupancy: number;
-  totalBeds: number;
+  totalBeds?: number;
   totalRooms: number;
   occupiedRooms: number;
   floors: number;

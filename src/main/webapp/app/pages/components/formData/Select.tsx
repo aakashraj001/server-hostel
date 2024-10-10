@@ -1,5 +1,6 @@
 import { ErrorMessage, Field } from 'formik';
 import TextError from './TextError';
+import React from 'react';
 
 interface optionsArrtypeof {
   key: string;

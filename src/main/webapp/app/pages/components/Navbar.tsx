@@ -1,19 +1,12 @@
-import logo from '../assets/images/logo.svg';
 import { NavLink, useLocation } from 'react-router-dom';
-import calander from '../assets/images/calander.svg';
-import bellicon from '../assets/images/bellicon.svg';
-import profile from '../assets/images/Profile.svg';
-import dashlogo from '../assets/images/dashboardlogo.svg';
-import roomlogo from '../assets/images/roomslogo.svg';
-import accountlogo from '../assets/images/accountslogo.svg';
-import maintenancelogo from '../assets/images/maintenancelogo.svg';
-import { ContextData, ContextValueType } from '../contextdata/Context';
+import { ContextData, ContextValueType } from '../../shared/contextdata/Context';
 import { useContext, useEffect } from 'react';
-import '../assets/styles/Navbar.css';
+import '../../../content/css/Navbar';
 import Calendar from './Calender';
+import React from 'react';
 
 const Navbar = () => {
-  const { theme, settheme } = useContext(ContextData) as ContextValueType;
+  const { theme, settheme } = useContext(ContextData);
   const location = useLocation();
 
   useEffect(() => {
@@ -34,22 +27,22 @@ const Navbar = () => {
 
   const navlink = [
     {
-      image: dashlogo,
+      image: '../../../content/images/dashboardlogo.svg',
       title: 'Dashboard',
       path: '/',
     },
     {
-      image: roomlogo,
+      image: '../../../content/images/roomslogo.svg',
       title: 'Rooms',
       path: '/rooms',
     },
     {
-      image: accountlogo,
+      image: '../../../content/images/accountslogo.svg',
       title: 'Accounts',
       path: '/accounts',
     },
     {
-      image: maintenancelogo,
+      image: '../../../content/images/maintenancelogo.svg',
       title: 'Maintenance',
       path: '/maintenance',
       disabled: true,
@@ -65,7 +58,7 @@ const Navbar = () => {
   return (
     <nav className="navbar fixed top-0 left-0 z-30 w-full">
       <div>
-        <img src={logo} alt="HMS" className="w-[10vw] p-2 h-[10vh]" />
+        <img src="../../../content/images/logo.svg" alt="HMS" className="w-[10vw] p-2 h-[10vh]" />
       </div>
       <div className="grid grid-cols-4 gap-3 content-center">
         {navlink.map((link, index) =>
@@ -85,17 +78,17 @@ const Navbar = () => {
       <div className="icons grid grid-cols-3 gap-3 content-center">
         <div className="calendar-container">
           <div className="icon">
-            <img src={calander} alt="loading" />
+            <img src="../../../content/images/calander.svg" alt="loading" />
           </div>
           <div className="calendar-popup">
             <Calendar />
           </div>
         </div>
         <div className="icon">
-          <img src={bellicon} alt="loading" />
+          <img src="../../../content/images/bellicon.svg" alt="loading" />
         </div>
         <div className="icon" onClick={handleProfile}>
-          <img src={profile} alt="loading" />
+          <img src="../../../content/images/Profile.svg" alt="loading" />
         </div>
       </div>
     </nav>

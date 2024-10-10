@@ -1,10 +1,7 @@
 import React from 'react';
-import loginlogo from '../../content/images/loginlogo.svg';
 import FormikControl from '../pages/components/formData/FormikControl';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import username from '../../content/images/username.svg';
-import password from '../../content/images/password.svg';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { setsessions } from '../pages/components/AuthComponents/SessionSetting';
 
@@ -46,7 +43,7 @@ const Login = () => {
     <div className="bg-baseOne w-[100vw] h-[100vh]">
       <div className="flex flex-col w-[30%] justify-center align-middle mx-[35%]  pt-[2%] pb-[2%]">
         <div className="mx-auto">
-          <img src={loginlogo} alt="loading" />
+          <img src="../../content/images/loginlogo.svg" alt="loading" />
         </div>
         <div className="relative mx-auto">
           <h1 className="text-[120px] text-PrimaryText font-semibold font-smoochsans">Welcome</h1>
@@ -64,7 +61,7 @@ const Login = () => {
                     className=" bg-baseinput text-[12px] h-[5vh] font-poppins rounded-xl pl-[2.5vw] text-baseThree"
                     name="username"
                   />
-                  <img src={username} alt="laoding" className="absolute top-[15%] left-[3%]" />
+                  <img src="../../content/images/username.svg" alt="laoding" className="absolute top-[15%] left-[3%]" />
                 </div>
                 <div className="relative w-[20vw] mt-[2vh] ">
                   <FormikControl
@@ -74,7 +71,7 @@ const Login = () => {
                     className=" bg-baseinput text-[12px] h-[5vh] font-poppins rounded-xl pl-[2.5vw] text-baseThree"
                     name="password"
                   />
-                  <img src={password} alt="laoding" className="absolute top-[15%] left-[3%]" />
+                  <img src="../../content/images/password.svg" alt="laoding" className="absolute top-[15%] left-[3%]" />
                 </div>
                 <div className="w-[20vw] mt-[2vh]">
                   <button

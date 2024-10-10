@@ -1,3 +1,4 @@
+import React from 'react';
 import DoughnutChart from '../../../DoughnutChart';
 import { dountChartProp } from '../../interface/rooms.model';
 
@@ -13,8 +14,8 @@ const DonutChartwithData = ({ values }: dountChartProp) => {
         </div>
       </div>
       <div className="w-[20vw] h-[10vh] grid grid-cols-2 mt-[8vh]  gap-3">
-        {values.map(value => (
-          <div className="flex flex-col  gap-1 w-fit h-fit bg-baseFive">
+        {values.map((value, index) => (
+          <div key={index} className="flex flex-col  gap-1 w-fit h-fit bg-baseFive">
             <h1 className="text-PrimaryText font-normal text-[16px]">{value.heading}</h1>
             <h1 className="font-semibold text-[20px]" style={{ color: value.color }}>
               {value.amount}

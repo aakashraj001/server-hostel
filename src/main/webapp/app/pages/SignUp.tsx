@@ -1,12 +1,7 @@
-import loginlogo from '../../content/images/loginlogo.svg';
 import FormikControl from '../pages/components/formData/FormikControl';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import username from '../../content/images/username.svg';
-import password from '../../content/images/password.svg';
 import { NavLink, useNavigate } from 'react-router-dom';
-import fullname from '../../content/images/fullname.svg';
-import confirm from '../../content/images/confirmpassword.svg';
 import { setsessions } from '../pages/components/AuthComponents/SessionSetting';
 
 import React from 'react';
@@ -52,7 +47,7 @@ const SignUp = () => {
     <div className="bg-baseOne w-[100vw] h-[100vh]">
       <div className="flex flex-col w-[30%] justify-center align-middle mx-[35%]  pt-[1%] ">
         <div className="mx-auto">
-          <img src={loginlogo} alt="loading" />
+          <img src="../../content/images/loginlogo.svg" alt="loading" />
         </div>
         <div className="relative mx-auto">
           <h1 className="text-[120px] text-PrimaryText font-semibold font-smoochsans">Welcome</h1>
@@ -70,7 +65,7 @@ const SignUp = () => {
                     className=" bg-baseinput text-[12px] h-[5vh] font-poppins rounded-xl pl-[2.5vw] text-baseThree"
                     name="fullname"
                   />
-                  <img src={fullname} alt="laoding" className="absolute top-[15%] left-[3%]" />
+                  <img src="../../content/images/fullname.svg" alt="laoding" className="absolute top-[15%] left-[3%]" />
                 </div>
                 <div className="relative w-[20vw] mt-[2vh] ">
                   <FormikControl
@@ -80,7 +75,7 @@ const SignUp = () => {
                     className=" bg-baseinput text-[12px] h-[5vh] font-poppins rounded-xl pl-[2.5vw] text-baseThree"
                     name="username"
                   />
-                  <img src={username} alt="laoding" className="absolute top-[15%] left-[3%]" />
+                  <img src="../../content/images/username.svg" alt="laoding" className="absolute top-[15%] left-[3%]" />
                 </div>
                 <div className="relative w-[20vw] mt-[2vh] ">
                   <FormikControl
@@ -90,7 +85,7 @@ const SignUp = () => {
                     className=" bg-baseinput text-[12px] h-[5vh] font-poppins rounded-xl pl-[2.5vw] text-baseThree"
                     name="password"
                   />
-                  <img src={password} alt="laoding" className="absolute top-[15%] left-[3%]" />
+                  <img src="../../content/images/password.svg" alt="laoding" className="absolute top-[15%] left-[3%]" />
                 </div>
                 <div className="relative w-[20vw] mt-[2vh] ">
                   <FormikControl
@@ -100,7 +95,7 @@ const SignUp = () => {
                     className=" bg-baseinput text-[12px] h-[5vh] font-poppins rounded-xl pl-[2.5vw] text-baseThree"
                     name="confirmpassword"
                   />
-                  <img src={confirm} alt="laoding" className="absolute top-[15%] left-[3%]" />
+                  <img src="../../content/images/confirmpassword.svg" alt="laoding" className="absolute top-[15%] left-[3%]" />
                 </div>
                 <div className="w-[20vw] mt-[2vh]">
                   <button

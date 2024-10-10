@@ -1,9 +1,5 @@
 import { ContextData, ContextValueType } from 'app/shared/contextdata/Context';
 import { useContext } from 'react';
-import Roomlogo from '../../../../../content/images/images/Roomlogo.svg';
-import hostelogo from '../../../../../content/images/images/hostellogo.svg';
-import calenderlogo from '../../../../../content/images/images/calander.svg';
-import downloadIcon from '../../../../../content/images/images/DownloadIcon.svg';
 import React from 'react';
 interface creditTypes {
   transactionId: string;
@@ -63,14 +59,14 @@ const Debitdetails = ({ props }: Types) => {
         <div className="flex flex-col gap-[1vw]">
           <h3 className="text-xl font-montserrat font-medium">Date</h3>
           <div className="flex gap-3 border-2 border-white rounded-lg px-3 py-2">
-            <img src={calenderlogo} alt="laoding" className="w-5 h-4 my-auto" />
+            <img src="../../../../../content/images/calander.svg" alt="laoding" className="w-5 h-4 my-auto" />
             <h3>{props[0].Date}</h3>
           </div>
         </div>
         <div className="flex flex-col gap-[1vw]">
           <h3 className="text-xl font-montserrat font-medium">Due Date</h3>
           <div className="flex gap-3 border-2 border-white rounded-lg px-3 py-2">
-            <img src={calenderlogo} alt="laoding" className="w-5 h-4 my-auto" />
+            <img src="../../../../../content/images/calander.svg" alt="laoding" className="w-5 h-4 my-auto" />
             <h3>{props[0].DueDate}</h3>
           </div>
         </div>
@@ -90,7 +86,7 @@ const Debitdetails = ({ props }: Types) => {
             </div>
             <div className="flex gap-3">
               <div className="flex gap-3 border-2 border-baseBorder rounded-lg px-3">
-                <img src={Roomlogo} alt="loading" className="w-5 h-4 my-auto" />
+                <img src="../../../../../content/images/images/Roomlogo.svg" alt="loading" className="w-5 h-4 my-auto" />
                 <h3 className=" my-auto">{props[0].RoomNo}</h3>
               </div>
               <div className="flex gap-1 border-2 border-baseBorder rounded-lg px-3">
@@ -98,7 +94,7 @@ const Debitdetails = ({ props }: Types) => {
                 <h3 className="my-auto">{props[0].FloorNo}</h3>
               </div>
               <div className="flex gap-1 border-2 border-baseBorder rounded-lg px-3">
-                <img src={hostelogo} alt="loading" className="w-5 h-4 my-auto" />
+                <img src="../../../../../content/images/images/hostellogo.svg" alt="loading" className="w-5 h-4 my-auto" />
                 <h3 className="my-auto">{props[0].HostelId}</h3>
               </div>
             </div>
@@ -128,11 +124,11 @@ const Debitdetails = ({ props }: Types) => {
         <div className="flex gap-10">
           <div className="flex gap-2 bg-baseOne h-fit px-3 py-2 rounded-md">
             <p className="text-base font-medium font-montserrat">Invoice</p>
-            <img src={downloadIcon} alt="loading" className="w-4 h-4 mt-1" />
+            <img src="../../../../../content/images/images/DownloadIcon.svg" alt="loading" className="w-4 h-4 mt-1" />
           </div>
           <div className="flex gap-2 bg-baseOne h-fit px-3 py-2 rounded-md">
             <p className="text-base font-montserrat font-medium">Images</p>
-            <img src={downloadIcon} alt="loading" className="w-4 h-4 mt-1" />
+            <img src="../../../../../content/images/images/DownloadIcon.svg" alt="loading" className="w-4 h-4 mt-1" />
           </div>
         </div>
       </div>
