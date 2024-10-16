@@ -1,5 +1,5 @@
 import { Chart as ChartJs, ArcElement, Tooltip, Legend } from 'chart.js';
-
+import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 
 ChartJs.register(ArcElement, Tooltip, Legend);
@@ -11,7 +11,7 @@ interface DoughnutChartProps {
 }
 
 const DoughnutChart: React.FC<DoughnutChartProps> = ({ dataprops, colorprops, height = '30vh' }) => {
-  const data = {
+  const chartConfig = {
     datasets: [
       {
         data: dataprops,
@@ -27,24 +27,24 @@ const DoughnutChart: React.FC<DoughnutChartProps> = ({ dataprops, colorprops, he
   const textCenter = {
     id: 'textCenter',
     beforeDatasetsDraw(chart: ChartJs<'doughnut', number[], unknown>) {
-      const { ctx, data } = chart;
+      const { ctx, data: internalData } = chart;
       const firstDatasetItem = chart.getDatasetMeta(0).data[0];
       if (firstDatasetItem) {
-        const centerX = firstDatasetItem.x!;
-        const centerY = firstDatasetItem.y!;
+        const centerX = firstDatasetItem.x;
+        const centerY = firstDatasetItem.y;
         ctx.save();
         ctx.font = 'bolder 32px Montserrat';
         ctx.fillStyle = 'white';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.fillText(`${data.datasets[0].data[1].toString()}%`, centerX, centerY);
+        ctx.fillText(`${internalData.datasets[0].data[1].toString()}%`, centerX, centerY);
       }
     },
   };
 
   return (
     <div style={{ height }} className="w-full">
-      <Doughnut data={data} options={options} plugins={[textCenter]} />
+      <Doughnut data={chartConfig} options={options} plugins={[textCenter]} />
     </div>
   );
 };

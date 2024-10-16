@@ -1,6 +1,7 @@
 import BeddedBunker from './components/rooms/BeddedBunker';
-import '../../assets/styles/Rooms.css';
+import '../../../../content/css/Rooms.css';
 import SearchIcon from '@mui/icons-material/Search';
+import React from 'react';
 
 const Rooms = () => {
   const dataArr = [
@@ -204,7 +205,7 @@ const Rooms = () => {
   ];
 
   return (
-    <div className="  mr-5 flex flex-col gap-4 ">
+    <div className="mr-5 flex flex-col gap-4 ">
       {/* search input */}
       <div className="flex items-center bg-fourth w-[20vw] h-14 rounded-lg text-white">
         <SearchIcon className="ml-4 text-white" />

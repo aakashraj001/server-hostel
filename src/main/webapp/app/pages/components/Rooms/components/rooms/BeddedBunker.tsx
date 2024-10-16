@@ -1,3 +1,4 @@
+import React from 'react';
 import { RoomsProps } from '../../interface/rooms.model';
 import DistributionChart from './DistribtuionChart';
 import DonutChartwithData from './DonutChartwithData';
@@ -95,8 +96,8 @@ const BeddedBunker = ({ rooms }: RoomsProps) => {
             <div className="w-[15vw] p-4 bg-fifth rounded-lg">
               <h3 className="font-bold text-white mb-4">Furniture</h3>
               <ul>
-                {room.Furniture.values.map((items, index) => (
-                  <li key={index} className="flex justify-between rounded-lg w-[13vw] bg-secondary p-2 text-gray-300 mb-2">
+                {room.Furniture.values.map((items, ind) => (
+                  <li key={ind} className="flex justify-between rounded-lg w-[13vw] bg-secondary p-2 text-gray-300 mb-2">
                     <span>{items.item}</span>
                     <span>{items.count}</span>
                     <HomeIcon className="text-3xl" />

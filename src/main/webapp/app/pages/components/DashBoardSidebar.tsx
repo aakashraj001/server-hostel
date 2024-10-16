@@ -1,5 +1,6 @@
 import { NavLink, useLocation } from 'react-router-dom';
-import '../assets/styles/sidebar.css';
+import '../../../content/css/sidebar.css';
+import React from 'react';
 
 interface propstypeOf {
   image: string;

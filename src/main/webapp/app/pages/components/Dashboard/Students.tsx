@@ -1,4 +1,4 @@
-import '../../../../content/styles/Dashboard_Students.css';
+import '../../../../content/css/Dashboard_Students.css';
 import StudentUpdates from '../StudentUpdates';
 import { useContext, useState } from 'react';
 import AddStudentForm from '../DashboardComponents/AddStudentForm';

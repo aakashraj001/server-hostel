@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { addDays, format, isWithinInterval, startOfMonth, endOfMonth, addMonths, subMonths, startOfWeek, endOfWeek } from 'date-fns';
-import '../assets/styles/calender.css';
+import '../../../content/css/calender.css';
 
 interface Range {
   startDate: Date;
