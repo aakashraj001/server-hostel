@@ -1,0 +1,40 @@
+.calendar {
+  width: 300px;
+  margin: auto;
+  text-align: center;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar-days {
+  display: flex;
+}
+
+.calendar-day {
+  flex: 1;
+}
+
+.calendar-dates {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.calendar-date {
+  width: 14.28%; /* 100% divided by 7 days */
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.calendar-date.selected {
+  background-color: #87cefa;
+}
+
+.calendar-date:hover {
+  background-color: #f0f0f0;
+}

@@ -20,15 +20,17 @@ export type AuthenticationState = Readonly<typeof initialState>;
 
 // Actions
 
-export const getSession = (): AppThunk => async (dispatch, getState) => {
-  await dispatch(getAccount());
+export const getSession =
+  (p0: string): AppThunk =>
+  async (dispatch, getState) => {
+    await dispatch(getAccount());
 
-  const { account } = getState().authentication;
-  if (account && account.langKey) {
-    const langKey = Storage.session.get('locale', account.langKey);
-    await dispatch(setLocale(langKey));
-  }
-};
+    const { account } = getState().authentication;
+    if (account && account.langKey) {
+      const langKey = Storage.session.get('locale', account.langKey);
+      await dispatch(setLocale(langKey));
+    }
+  };
 
 export const getAccount = createAsyncThunk('authentication/get_account', async () => axios.get<any>('api/account'), {
   serializeError: serializeAxiosError,
@@ -41,7 +43,7 @@ export const logoutServer = createAsyncThunk('authentication/logout', async () =
 export const logout: () => AppThunk = () => async dispatch => {
   await dispatch(logoutServer());
   // fetch new csrf token
-  dispatch(getSession());
+  dispatch(getSession('xyz'));
 };
 
 export const clearAuthentication = messageKey => dispatch => {
